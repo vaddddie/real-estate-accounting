@@ -14,7 +14,7 @@ def createBuilding(request):
             print(form.errors)
     else:
         form = BuildingForm()
-    return render(request, 'createBuilding.html', {'form': form})
+    return render(request, 'main/createBuilding.html', {'form': form})
 
 def filterBuilding(request):
     queryset = Building.objects.all()

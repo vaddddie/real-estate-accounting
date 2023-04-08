@@ -10,37 +10,90 @@
 		<div class="option-menu-content">
 			<label class="mb-5" for="state">Округ</label>
 			<select class="mb-15" name="state" id="state">
+				<option selected hidden disabled>
+					Выберите округ
+				</option>
 				<option>ЮАО</option>
 				<option>ЗАО</option>
 				<option>САО</option>
 				<option>ВАО</option>
 			</select>
-
-			<label for="min_area">Мин площадь:</label>
-			<input type="text" name="min_area">
-			<label for="max_area">Макс площадь:</label>
-			<input type="text" name="max_area">
-
-
-
+			<label class="mb-5" for="min_area">Мин. площадь:</label>
+			<input class="mb-15" type="text" name="min_area" placeholder="Введите число">
+			<label class="mb-5" for="max_area">Макс. площадь:</label>
+			<input class="mb-15" type="text" name="max_area" placeholder="Введите число">
 			<label class="mb-5" for="type">Тип объекта</label>
 			<select class="mb-15" name="type" id="type">
+				<option selected hidden disabled>
+					Выберите тип объекта
+				</option>
 				<option>Жилой</option>
 				<option>Нежилой</option>
 				<option>Прочее</option>
 			</select>
-
 			<label class="mb-5" for="status">Состаяние объекта</label>
-			<select class="mb-15" name="status" id="status">
+			<select class="mb-25" name="status" id="status">
+				<option selected hidden disabled>
+					Выберите состояние объекта
+				</option>
 				<option>Хорошее состояние</option>
 				<option>Умеренное состояние</option>
 				<option>Плохое состояние</option>
 			</select>
-			<input class="filter-btn" type="submit" value="Показать" name="show-results">
+			<input class="filter-btn mb-15" type="submit" value="Показать" name="show-results">
+			<a href="/" class="reset-btn">Сброс</a>
 		</div>
 	</form>
 </div>
 <div class="content">
+	{% for el in buildings %}
+	<a href="/" class="card">
+		<img class="mb-15" src="{{ el.objImage.url }}"/>
+		<div class="card-row gray">
+			<div>
+				Округ:
+			</div>
+			<div class="content-end">
+				{{ el.objState }}
+			</div>
+		</div>
+		<div class="card-row">
+			<div>
+				Район:
+			</div>
+			<div class="content-end">
+				{{ el.objDistrict }}
+			</div>
+		</div>
+		<div class="card-row gray">
+			<div>
+				Адрес:
+			</div>
+			<div class="content-end">
+				{{ el.objAddress }}
+			</div>
+		</div>
+		<div class="card-row">
+			<div>
+				Статус:
+			</div>
+			<div class="content-end">
+				{{ el.objStatus }}
+			</div>
+		</div>
+		<div class="card-row gray">
+			<div>
+				Владелец:
+			</div>
+			<div class="content-end">
+				{{ el.objOwner }}
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+</div>
+<!--
+<div style="display: block;">
 	<table>
 		<thead>
 		  <tr>
@@ -72,8 +125,7 @@
 		  </tr>
 		  {% endfor %}
 		</tbody>
-	  </table>
+	</table>
 </div>
-
-
+-->
 {% endblock %}

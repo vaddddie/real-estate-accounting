@@ -1,0 +1,14 @@
+{% extends 'main/layers/nav_panel.html' %}
+{% load static %}
+
+{% block title %}Создание карточки{% endblock %}
+
+{% block content %}
+<div class="create-container">
+    <form method="post" action={% url 'createBuilding' %} enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="filter-btn" type="submit" value="Создать карточку">
+    </form>    
+</div>
+{% endblock %}
