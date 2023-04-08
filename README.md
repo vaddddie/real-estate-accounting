@@ -1,0 +1,1 @@
+#Hackathon project for the development of a digital assistant for real estate accounting
