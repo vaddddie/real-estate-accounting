@@ -1,1 +1,26 @@
- 
+{% extends 'main/layers/nav_panel.html' %}
+{% load static %}
+
+{% block title %}Реестр{% endblock %}
+
+{% block content %}
+<div class="option-menu-container">
+	<form method="post">
+		{% csrf_token %}
+		<div class="option-menu-content">
+				<label class="mb-5" for="district">Округ</label>
+				<select class="mb-15" name="district" id="district">
+					<option>Автономный</option>
+					<option>Неавтономный</option>
+					<option>Не придумал</option>
+				</select>
+				<label class="mb-5" for="area">Площадь</label>
+				<input class="mb-15" type="range" name="area" id="area">
+				<input class="filter-btn" type="submit" value="Показать" name="show-results">
+		</div>
+	</form>		
+</div>
+<div class="content">
+	
+</div>
+{% endblock %}

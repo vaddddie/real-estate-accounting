@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="flex-container">
+        <div class="side"></div>
+        <div class="main">
+            <nav>
+                <div class="upper-case">
+                    <div class="logo-case">
+                        <a href="/" class="img-holder">
+                            <img src="{% static 'main/img/logo1.png' %}">
+                        </a>
+                    </div>
+                    <a href="#" class="auth-case">Вход</a>
+                </div>
+                <div class="lower-case">
+                    <a href="/" class="nav-btn">Реестр</a>
+                    <a href="#" class="nav-btn">Календарь</a>
+                    <a href="#" class="nav-btn">Добавить объект(-ы)</a>
+                    <a href="#" class="nav-btn">Что-то ещё</a>
+                    <a href="#" class="nav-btn">В разработке</a>
+                </div>
+                <div class="container">
+                    {% block content %}{% endblock %}
+                </div>
+            </nav>
+        </div>
+        <div class="side"></div>
+    </div>
+</body>
+</html>
