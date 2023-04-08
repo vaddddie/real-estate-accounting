@@ -1,11 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import BuildingForm
 
-# Create your views here.
-# def post(self, request, *args, **kwargs):
-#         self.template_name = '/main/index.html'
-#         return render(request, self.template_name, self.context)
-
 def test(request):
     return render(request, 'main/index.html')
 

@@ -2,9 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Building(models.Model):
-    #def __str__(self):
-    #    return self.Name
-    
     """ sidenotes
     We can actually use Field.choices in order to validate 
     information entered into database, but for this moment I
