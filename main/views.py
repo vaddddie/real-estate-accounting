@@ -5,10 +5,9 @@ from .forms import BuildingForm
 # def post(self, request, *args, **kwargs):
 #         self.template_name = '/main/index.html'
 #         return render(request, self.template_name, self.context)
-<<<<<<< HEAD
+
 def test(request):
     return render(request, 'main/index.html')
-=======
 
 def createBuilding(request):
     print("createBuilding method called")
@@ -23,4 +22,3 @@ def createBuilding(request):
     else:
         form = BuildingForm()
     return render(request, 'createBuilding.html', {'form': form})
->>>>>>> reyestr
