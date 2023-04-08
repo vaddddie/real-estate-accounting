@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import BuildingForm
 from .models import Building
+from django.views.generic.edit import UpdateView
 
 #def test(request):
 #    return render(request, 'main/index.html')
@@ -46,3 +47,15 @@ def filterBuilding(request):
     }
     print(context)
     return render(request, 'main/index.html', context)
+
+def edit_building(request):
+    if request.method == 'POST':
+        building_id = request.POST.get('building_id')
+        return redirect("/editBuilding/"+str(building_id))
+    return render(request, 'editBuilding.html')
+    
+class BuildingUpdateView(UpdateView):
+    model = Building
+    fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
+    template_name_suffix = '_update_form'
+    success_url= '/'
