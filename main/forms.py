@@ -20,10 +20,10 @@ class BuildingForm(forms.ModelForm):
         fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
         
 class WorkgroupForm(forms.ModelForm):
-    topic = forms.CharField(required=True, max_length=50)
-    date = forms.DateTimeField(required=True, widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'))
-    buildings = forms.ModelMultipleChoiceField(required=True, queryset=Building.objects.all(), widget=forms.CheckboxSelectMultiple)
-    users = forms.ModelMultipleChoiceField(required=True, queryset=User.objects.all(), widget=forms.CheckboxSelectMultiple)
+    topic = forms.CharField(required=True, max_length=50, widget=forms.TextInput(attrs={'class': 'title-input', 'placeholder': 'Введите название'}))
+    date = forms.DateTimeField(required=True, widget=forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'date-input'}, format='%Y-%m-%dT%H:%M'))
+    buildings = forms.ModelMultipleChoiceField(required=True, queryset=Building.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'enum'}))
+    users = forms.ModelMultipleChoiceField(required=True, queryset=User.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'enum'}))
     
     class Meta:
         model = Workgroup

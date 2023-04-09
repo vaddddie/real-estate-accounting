@@ -289,11 +289,6 @@ CREATING
 	height: auto;
 }
 
-.create-container form {
-	width: 26em;
-	height: auto;
-}
-
 /*
 ======
 LIST VIEW
@@ -433,6 +428,67 @@ DELETE
 	justify-content: center;
 	border-radius: 10px;
 	box-shadow: 0 0 4px gray;
+}
+
+/*
+======
+CREATE
+======
+*/
+
+.work-container {
+	width: 100%;
+	height: auto;
+
+	display: flex;
+
+	padding: 1em;
+}
+
+.title-input, .date-input {
+	width: 15em;
+	height: 2em;
+}
+
+.enum {
+	padding: 0.5em;
+	font-size: 20px;
+}
+
+.enum input[type="checkbox"] {
+	width: 1em;
+	height: 1em;
+	margin-right: 1em;
+
+	box-shadow: 0 0 1px gray;
+}
+
+.enum * {
+	margin-top: 0.3em;
+}
+
+.title-part {
+	width: 30%;
+}
+
+.buildings-part {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: top;
+	align-items: center;
+
+	width: 35%;
+}
+
+.users-part {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: top;
+	align-items: center;
+
+	width: 35%;
 }
  
 .error {

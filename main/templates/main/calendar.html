@@ -9,6 +9,7 @@
 	<a class="btn btn-info left" href="{% url 'calendar' %}?{{ prev_month }}"> Предыдущий месяц </a>
 	<a class="btn btn-info right" href="{% url 'calendar' %}?{{ next_month }}"> Следующий месяц </a>
 	<a class="btn btn-info right" href="{% url 'create_workgroup' %}"> Новое событие </a>
+	<a class="btn btn-info right" href="{% url 'home' %}"> На главную </a>
 </div>
 
 {{ calendar }}

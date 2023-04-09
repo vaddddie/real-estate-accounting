@@ -1,4 +1,35 @@
+{% extends 'main/layers/nav_panel.html' %}
+{% load static %}
+
+{% block title %}Создание{% endblock %}
+{% block content %}
+  <form class="work-container" method="post">
+    {% csrf_token %}
+    <div class="buildings-part">
+      <a>Объекты:</a>
+      {{ form.buildings }}
+    </div>
+    <div class="users-part">
+      <a>Участники:</a>
+      {{ form.users }}
+    </div>
+    <div class="title-part">
+      <div class="card-row gray">
+        <div>Название:</div>
+        <div class="content-end">{{ form.topic }}</div>
+      </div>
+      <div class="card-row">
+        <div>Время:</div>
+        <div class="content-end">{{ form.date }}</div>
+      </div>
+      <input class="filter-btn" type="submit" value="Создать">
+    </div>
+  </form>
+{% endblock %}
+
+<!--
 <form method="post">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Принять</button>
 </form>
+-->
