@@ -19,6 +19,7 @@
 				<option>ЗАО</option>
 				<option>САО</option>
 				<option>ВАО</option>
+				<option>ЦАО</option>
 			</select>
 			<label class="mb-5" for="min_area">Мин. площадь:</label>
 			<input class="mb-15" type="text" name="min_area" placeholder="Введите число">
@@ -49,6 +50,7 @@
 		</div>
 	</form>
 </div>
+
 <div class="content">
 	{% for el in buildings %}
 	<a href="/" class="card">
@@ -96,6 +98,8 @@
 	</a>
 	{% endfor %}
 </div>
+{% endblock %}
+
 <!--
 <div style="display: block;">
 	<table>
@@ -132,4 +136,3 @@
 	</table>
 </div>
 -->
-{% endblock %}
