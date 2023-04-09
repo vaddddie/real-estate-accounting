@@ -2,15 +2,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 <<<<<<< HEAD
-<<<<<<< HEAD
 from .models import Building,Workgroup
 from django.contrib.auth.models import User
 =======
 from .models import Building, Event
 >>>>>>> calendar
-=======
-from .models import Building
->>>>>>> parent of 37eaf7a (Added calendar)
 
 class BuildingForm(forms.ModelForm):
     objState = forms.CharField(max_length=6, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите округ'})) #Here we can use ChoiceField
@@ -25,7 +21,6 @@ class BuildingForm(forms.ModelForm):
     
     class Meta:
         model = Building
-<<<<<<< HEAD
         fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
 <<<<<<< HEAD
         
@@ -66,6 +61,3 @@ class EventForm(forms.ModelForm):
     self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',)
     self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)
 >>>>>>> calendar
-=======
-        fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
->>>>>>> parent of 37eaf7a (Added calendar)
