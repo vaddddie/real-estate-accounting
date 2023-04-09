@@ -12,6 +12,7 @@ urlpatterns = [
     path('editBuilding/<int:pk>/', views.BuildingUpdateView.as_view(), name='edit_building'),
     path('building/<int:pk>/', views.BuildingDetailView.as_view(), name='building_detail'),
 <<<<<<< HEAD
+<<<<<<< HEAD
     path('deleteBuilding/<int:pk>/', views.BuildingDeleteView.as_view(), name='building_delete'),
     path('createWorkgroup/', views.WorkgroupCreate.as_view(), name='create_workgroup')
 =======
@@ -19,4 +20,6 @@ urlpatterns = [
     path('event/new/', views.event, name='event_new'),
     path(r'event/edit/', views.event, name='event_edit'),
 >>>>>>> calendar
+=======
+>>>>>>> parent of 37eaf7a (Added calendar)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

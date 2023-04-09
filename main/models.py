@@ -1,10 +1,13 @@
 from django.db import models
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.contrib.auth.models import User
 =======
 from django.urls import reverse
 
 >>>>>>> calendar
+=======
+>>>>>>> parent of 37eaf7a (Added calendar)
 
 # Create your models here.
 class Building(models.Model):
@@ -28,6 +31,7 @@ class Workgroup(models.Model):
     buildings = models.ManyToManyField(Building)
 =======
     objImage = models.ImageField(upload_to='images/', default='images/7fIzRQy.png')
+<<<<<<< HEAD
 
 
 class Event(models.Model):
@@ -41,3 +45,5 @@ class Event(models.Model):
         url = reverse('event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
 >>>>>>> calendar
+=======
+>>>>>>> parent of 37eaf7a (Added calendar)

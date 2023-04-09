@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.shortcuts import render, redirect
 from .forms import BuildingForm, WorkgroupForm, Login_form
 from .models import Building, Workgroup
@@ -15,10 +16,14 @@ from django.utils.safestring import mark_safe
 from django.http import HttpResponseRedirect
 >>>>>>> calendar
 from django.urls import reverse
+=======
+from django.shortcuts import render, redirect
+from .forms import BuildingForm
+from .models import Building
+from django.views.generic.edit import UpdateView
+from django.views.generic import DetailView
+>>>>>>> parent of 37eaf7a (Added calendar)
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta, date
-from .utils import Calendar
-import calendar
 
 
 def createBuilding(request):
@@ -97,6 +102,7 @@ class BuildingDeleteView(DeleteView):
 class BuildingDetailView(DetailView):
     model = Building
     template_name = 'main/building_detail.html'
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -167,3 +173,5 @@ def event(request, event_id=None):
         return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'main/event.html', {'form': form})
 >>>>>>> calendar
+=======
+>>>>>>> parent of 37eaf7a (Added calendar)
