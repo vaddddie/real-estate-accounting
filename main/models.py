@@ -1,13 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Building(models.Model):
-    """ sidenotes
-    We can actually use Field.choices in order to validate 
-    information entered into database, but for this moment I
-    dont want to do this.
-    """
-
     objId = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
     objState = models.CharField(max_length=6)
     objDistrict = models.CharField(max_length=30)
@@ -18,3 +13,10 @@ class Building(models.Model):
     objOwner = models.CharField(max_length=50)
     objUser = models.CharField(max_length=50)
     objImage = models.ImageField(upload_to='images/', default='images/7fIzRQy.png')
+
+class Workgroup(models.Model):
+    ID = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
+    topic = models.CharField(max_length=50)
+    date = models.DateField()
+    users = models.ManyToManyField(User)
+    buildings = models.ManyToManyField(Building)

@@ -1,0 +1,7 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete строение №{{ object.objId }}?</p>
+    <input type="submit" value="ДА">
+    <a href="/">НЕТ</a>
+</form>
+  

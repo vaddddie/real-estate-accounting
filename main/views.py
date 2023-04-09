@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import BuildingForm
-from .models import Building
-from django.views.generic.edit import UpdateView
+from .forms import BuildingForm, WorkgroupForm
+from .models import Building, Workgroup
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from django.views.generic import DetailView
 import xml.etree.ElementTree as ET
 
@@ -68,21 +68,25 @@ def filterBuilding(request):
     return render(request, 'main/index.html', context)
 
 
-def edit_building(request):
-    if request.method == 'POST':
-        building_id = request.POST.get('building_id')
-        return redirect("/editBuilding/" + str(building_id))
-    return render(request, 'main/editBuilding.html')
-
-
 class BuildingUpdateView(UpdateView):
     model = Building
     form_class = BuildingForm
-    # fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
-    template_name_suffix = '_update_form'
+    template_name = 'main/building_update_form.html'
     success_url = '/'
 
+class BuildingDeleteView(DeleteView):
+    model = Building
+    template_name = "main/building_delete.html"
+    success_url = '/'
 
 class BuildingDetailView(DetailView):
     model = Building
     template_name = 'main/building_detail.html'
+
+
+class WorkgroupCreate(CreateView):
+    model = Workgroup
+    form_class = WorkgroupForm
+    template_name = 'main/workgroup_form.html'
+    success_url = '/'
+    
