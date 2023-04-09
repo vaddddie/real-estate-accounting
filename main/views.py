@@ -25,12 +25,13 @@ def createBuilding(request):
                 objImage=values['objImage'])
             new_obj.save()
             return redirect('/')
-        form = BuildingForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        else:
+            form = BuildingForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+            else: 
+                print(form.errors)
             return redirect("/")
-        else: 
-            print(form.errors)
     else:
         form = BuildingForm()
     return render(request, 'main/createBuilding.html', {'form': form})
