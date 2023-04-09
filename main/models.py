@@ -12,7 +12,7 @@ class Building(models.Model):
     objArea = models.IntegerField()
     objOwner = models.CharField(max_length=50)
     objUser = models.CharField(max_length=50)
-    objImage = models.ImageField(upload_to='images/', default='images/7fIzRQy.png')
+    objImage = models.ImageField(default='default/default.png', upload_to='images/')
 
 class Workgroup(models.Model):
     ID = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
