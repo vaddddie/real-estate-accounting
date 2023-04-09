@@ -2,12 +2,29 @@ from django.shortcuts import render, redirect
 from .forms import BuildingForm
 from .models import Building
 from django.views.generic.edit import UpdateView
+import xml.etree.ElementTree as ET
 
 def createBuilding(request):
     if request.method == 'POST':
-        print("THIS IS POST GET", request.POST.get("xml-file"))
-        tmp = request.FILES
-        print(type(tmp["xml-file"]))
+        xml_file = request.FILES.get('xml-file')
+        if xml_file is not None:
+            xml_file = ET.parse(xml_file)
+            values = {'objState': None, 'objDistrict': None, 'objAddress': None, 'objType': None, 'objStatus': None,
+                      'objArea': None, 'objOwner': None, 'objUser': None, 'objImage': None}
+            for field in xml_file.iter('field'):
+                values[field.get('name')] = field.text
+            new_obj = Building(
+                objState=values['objState'],
+                objDistrict=values['objDistrict'],
+                objAddress=values['objAddress'],
+                objType=values['objType'],
+                objStatus=values['objStatus'],
+                objArea=values['objArea'],
+                objOwner=values['objOwner'],
+                objUser=values['objUser'],
+                objImage=values['objImage'])
+            new_obj.save()
+            return redirect('/')
         form = BuildingForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
