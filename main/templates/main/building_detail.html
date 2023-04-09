@@ -1,0 +1,12 @@
+<h1>Строение №{{ building.objId }}</h1>
+<img src="{{ building.objImage.url }}"/>
+<p><strong>Округ:</strong> {{ building.objState }}</p>
+<p><strong>Район:</strong> {{ building.objDistrict }}</p>
+<p><strong>Адрес:</strong> {{ building.objAddress }}</p>
+<p><strong>Тип объекта:</strong> {{ building.objType }}</p>
+<p><strong>Состояние объекта:</strong> {{ building.objStatsus }}</p>
+<p><strong>Площадь:</strong> {{ building.objArea }}</p>
+<p><strong>Владелец:</strong> {{ building.objOwner }}</p>
+<p><strong>Реальный пользователь:</strong> {{ building.objUser }}</p>
+
+<a href="/editBuilding/{{building.objId}}" class="reset-btn">Редактировать</a>
