@@ -10,7 +10,7 @@ class BuildingForm(forms.ModelForm):
     objArea = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={'placeholder': 'Введите площадь'}))
     objOwner = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите владельца'}))
     objUser = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите пользователя'}))
-    objImage = forms.ImageField(required=True, widget=forms.FileInput(attrs={'accept': '.png, .jpg, .jpeg'}))
+    objImage = forms.ImageField(required=True, widget=forms.FileInput(attrs={'accept': '.png, .jpg, .jpeg', 'style': 'width: 14.5em'}))
     
     class Meta:
         model = Building
