@@ -208,7 +208,7 @@ input {
 	height: 100%;
 
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	padding: 0.7em;
 }
@@ -291,6 +291,43 @@ CREATING
 .create-container form {
 	width: 26em;
 	height: auto;
+}
+
+/*
+======
+LIST VIEW
+======
+*/
+
+.view-container {
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 1.5em;
+}
+
+.view-container img {
+	width: 60%;
+	height: 25em;
+
+	border-radius: 10px;
+
+	opacity: 0.8;
+
+	object-fit: cover;
+}
+
+.attrs-container {
+	flex: auto;
+	width: auto;
+	height: auto;
+
+	font-size: 1.1em;
+
+	padding: 0 4em;
 }
 
 .mb-15 {
