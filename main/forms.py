@@ -31,8 +31,8 @@ class WorkgroupForm(forms.ModelForm):
 
 
 class Login_form(AuthenticationForm):
-    username = forms.CharField(label='Login', widget=forms.TextInput(attrs={'class': 'form_label'}))
-    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form_label'}))
+    username = forms.CharField(label='Login', widget=forms.TextInput(attrs={'class': 'form_label', 'placeholder': 'Введите имя пользователя'}))
+    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form_label', 'placeholder': 'Введите пароль'}))
 
     class Meta:
         model = User

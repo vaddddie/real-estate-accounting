@@ -3,18 +3,26 @@
 
 {% block title %}Авторизация{% endblock %}
 {% block content %}
-	<form method="post">
-		{% csrf_token %}
-
-	    {% if form.errors %}
-	        <p>Your username and password didn't match. Please try again.</p>
-	    {% endif %}
-
-		{% for el in form %}
-		<p><label for="{{ el.id_for_label }}">{{ el.label }}: </label>{{ el }}</p>
-		<div>{{ el.errors }}</div>
-		{% endfor %}
-
-	    <button type="submit">Login</button>
-	</form>
+	<div class="login-container">
+		<div class="flex-container">
+		    {% if form.errors %}
+	        <p class="error mb-25">Your username and password didn't match. Please try again.</p>
+		    {% endif %}	
+		</div>
+		<div class="flex-container login-content">
+			<form method="post">
+				{% csrf_token %}
+				<div class="card-row mb-15 gray">
+					<div>Имя пользователя:</div>
+					<div class="content-end">{{ form.username }}</div>
+				</div>
+				<div class="card-row mb-25">
+					<div>Пароль:</div>
+					<div class="content-end">{{ form.password }}</div>
+				</div>
+				<div>{{ el.errors }}</div>
+			    <input class="filter-btn" type="submit" value="Войти">
+			</form>
+		</div>
+	</div>
 {% endblock %}

@@ -47,8 +47,10 @@
                   <div class="content-end">{{ form.objImage }}</div>
               </div>
               <input class="filter-btn mt-15" type="submit" value="Сохранить">
-              <a class="filter-btn mt-15" href="/deleteBuilding/{{object.objId}}">Удалить</a>
-  </form>
+              <div class="card-row">
+                <a href="/deleteBuilding/{{object.objId}}" class="reset-btn flex-container">Удалить</a>
+              </div>
+            </form>
         </div>
     </div>
 </div>

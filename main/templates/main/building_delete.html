@@ -1,7 +1,19 @@
-<form method="POST">
-    {% csrf_token %}
-    <p>Are you sure you want to delete строение №{{ object.objId }}?</p>
-    <input type="submit" value="ДА">
-    <a href="/">НЕТ</a>
-</form>
-  
+{% extends 'main/layers/nav_panel.html' %}
+{% load static %}
+
+{% block title %}Подтверждение{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="del-content">
+        <form class="flex-container" method="POST">
+            {% csrf_token %}
+            <h2>Вы уверены что хотите удалить объект №{{ object.objId }}??</h2>
+            <div class="card-row mt-15">
+                <input class="filter-btn" type="submit" value="ДА">
+                <a href="/building/{{ object.objId }}">НЕТ</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
