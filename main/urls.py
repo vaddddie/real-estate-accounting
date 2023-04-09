@@ -11,6 +11,12 @@ urlpatterns = [
     path('createBuilding/', views.createBuilding, name='createBuilding'),
     path('editBuilding/<int:pk>/', views.BuildingUpdateView.as_view(), name='edit_building'),
     path('building/<int:pk>/', views.BuildingDetailView.as_view(), name='building_detail'),
+<<<<<<< HEAD
     path('deleteBuilding/<int:pk>/', views.BuildingDeleteView.as_view(), name='building_delete'),
     path('createWorkgroup/', views.WorkgroupCreate.as_view(), name='create_workgroup')
+=======
+    path('calendar/', views.CalendarView.as_view(), name='calendar'),
+    path('event/new/', views.event, name='event_new'),
+    path(r'event/edit/', views.event, name='event_edit'),
+>>>>>>> calendar
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

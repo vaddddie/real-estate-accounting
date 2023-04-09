@@ -1,8 +1,12 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
+<<<<<<< HEAD
 from .models import Building,Workgroup
 from django.contrib.auth.models import User
+=======
+from .models import Building, Event
+>>>>>>> calendar
 
 class BuildingForm(forms.ModelForm):
     objState = forms.CharField(max_length=6, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите округ'})) #Here we can use ChoiceField
@@ -18,6 +22,7 @@ class BuildingForm(forms.ModelForm):
     class Meta:
         model = Building
         fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
+<<<<<<< HEAD
         
 class WorkgroupForm(forms.ModelForm):
     topic = forms.CharField(required=True, max_length=50)
@@ -37,3 +42,22 @@ class Login_form(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+=======
+
+
+class EventForm(forms.ModelForm):
+  class Meta:
+    model = Event
+    # datetime-local is a HTML5 input type, format to make date time show on fields
+    widgets = {
+      'start_time': forms.DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
+      'end_time': forms.DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
+    }
+    fields = '__all__'
+
+  def __init__(self, *args, **kwargs):
+    super(EventForm, self).__init__(*args, **kwargs)
+    # input_formats parses HTML5 datetime-local input to datetime field
+    self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',)
+    self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)
+>>>>>>> calendar
