@@ -7,7 +7,7 @@
     <link href="{% static 'main/css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <div class="flex-container">
+    <div class="flex-container-top">
         <div class="side"></div>
         <div class="main">
             <nav>
@@ -17,7 +17,11 @@
                             <img src="{% static 'main/img/logo1.png' %}">
                         </a>
                     </div>
-                    <a href="#" class="auth-case">Вход</a>
+                    {% if user.is_authenticated %}
+                        <h5 class="auth-case fs-20">{{ user.first_name }}</h5><a href="{% url 'logout' %}" class="auth-case">Выход</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="auth-case">Вход</a>
+                    {% endif %}
                 </div>
                 <div class="lower-case">
                     <a href="/" class="nav-btn">Реестр</a>

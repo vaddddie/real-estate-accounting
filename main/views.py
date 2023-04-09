@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import BuildingForm
+from .forms import BuildingForm, Login_form
 from .models import Building
 from django.views.generic.edit import UpdateView
 from django.views.generic import DetailView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse
 import xml.etree.ElementTree as ET
 
 
@@ -86,3 +88,18 @@ class BuildingUpdateView(UpdateView):
 class BuildingDetailView(DetailView):
     model = Building
     template_name = 'main/building_detail.html'
+
+
+class Login(LoginView):
+    form_class = Login_form
+    template_name = 'main/users/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self, **kwargs):
+        return reverse("home")
+
+class Logout(LogoutView):
+    pass
