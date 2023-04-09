@@ -53,7 +53,7 @@
 
 <div class="content">
 	{% for el in buildings %}
-	<a href="/" class="card">
+	<a href="/building/{{el.objId}}" class="card">
 		<img class="mb-15" src="{{ el.objImage.url }}"/>
 		<div class="card-row gray">
 			<div>

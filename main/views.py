@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import BuildingForm
 from .models import Building
 from django.views.generic.edit import UpdateView
+from django.views.generic import DetailView
 import xml.etree.ElementTree as ET
 
 def createBuilding(request):
@@ -76,3 +77,7 @@ class BuildingUpdateView(UpdateView):
     #fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']
     template_name_suffix = '_update_form'
     success_url= '/'
+
+class BuildingDetailView(DetailView):
+    model = Building
+    template_name = 'main/building_detail.html'
