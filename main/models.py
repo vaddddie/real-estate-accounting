@@ -17,6 +17,6 @@ class Building(models.Model):
 class Workgroup(models.Model):
     ID = models.BigAutoField(auto_created=True, primary_key=True, serialize=False)
     topic = models.CharField(max_length=50)
-    date = models.DateField()
+    date = models.DateTimeField()
     users = models.ManyToManyField(User)
     buildings = models.ManyToManyField(Building)

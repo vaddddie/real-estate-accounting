@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from .models import Building,Workgroup
-from django.contrib.auth.models import User
+
 
 class BuildingForm(forms.ModelForm):
     objState = forms.CharField(max_length=6, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите округ'})) #Here we can use ChoiceField
@@ -21,7 +21,7 @@ class BuildingForm(forms.ModelForm):
         
 class WorkgroupForm(forms.ModelForm):
     topic = forms.CharField(required=True, max_length=50)
-    date = forms.DateField(required=True, widget=forms.DateInput(attrs={'type': 'date'}))
+    date = forms.DateTimeField(required=True, widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'))
     buildings = forms.ModelMultipleChoiceField(required=True, queryset=Building.objects.all(), widget=forms.CheckboxSelectMultiple)
     users = forms.ModelMultipleChoiceField(required=True, queryset=User.objects.all(), widget=forms.CheckboxSelectMultiple)
     
