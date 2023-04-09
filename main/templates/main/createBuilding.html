@@ -6,7 +6,11 @@
 {% block content %}
 <div class="create-container">
     <h3 class="mb-15 mt-15">Импортируйте карточки в формате .xml:</h3>
-    <input class="mb-25" type="file" name="xml-file">
+    <form method="post" action="{% url 'createBuilding' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class="mb-15" type="file" name="xml-file">
+        <input class="filter-btn mb-25" type="submit" value="Добавить карточки">
+    </form>
     <h3 class="mb-15">Либо добавьте карточку вручную:</h3>
     <form method="post" action="{% url 'createBuilding' %}" enctype="multipart/form-data">
         {% csrf_token %}

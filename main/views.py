@@ -5,6 +5,9 @@ from django.views.generic.edit import UpdateView
 
 def createBuilding(request):
     if request.method == 'POST':
+        print("THIS IS POST GET", request.POST.get("xml-file"))
+        tmp = request.FILES
+        print(type(tmp["xml-file"]))
         form = BuildingForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -13,7 +16,6 @@ def createBuilding(request):
             print(form.errors)
     else:
         form = BuildingForm()
-    return render(request, 'main/createBuilding.html', {'form': form})
     return render(request, 'main/createBuilding.html', {'form': form})
 
 def filterBuilding(request):
