@@ -2,15 +2,16 @@ from django import forms
 from .models import Building
 
 class BuildingForm(forms.ModelForm):
-    objState = forms.CharField(label = 'Округ', max_length=6, required=True) #Here we can use ChoiceField
-    objDistrict = forms.CharField(label = 'Район', max_length=30, required=True)
-    objAddress = forms.CharField(label = 'Адрес', max_length=120, required=True)
-    objType = forms.CharField(label = 'Тип объекта', max_length=20, required=True)
-    objStatus = forms.CharField(label = 'Состояние объекта', max_length=20, required=True)
-    objArea = forms.IntegerField(label = 'Площадь объекта', required=True)
-    objOwner = forms.CharField(label = 'Собственник', max_length=50, required=True)
-    objUser = forms.CharField(label = 'Фактический пользователь', max_length=50, required=True)
-    objImage = forms.ImageField(label = 'Фото объекта', required=True)
+    objState = forms.CharField(max_length=6, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите округ'})) #Here we can use ChoiceField
+    objDistrict = forms.CharField(max_length=30, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите район'}))
+    objAddress = forms.CharField(max_length=120, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите адрес'}))
+    objType = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите тип объекта'}))
+    objStatus = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите состояние объекта'}))
+    objArea = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={'placeholder': 'Введите площадь'}))
+    objOwner = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите владельца'}))
+    objUser = forms.CharField(max_length=50, required=True, widget=forms.TextInput(attrs={'placeholder': 'Введите пользователя'}))
+    objImage = forms.ImageField(required=True)
+    
     class Meta:
         model = Building
         fields = ['objState', 'objDistrict', 'objAddress', 'objType', 'objStatus', 'objArea', 'objOwner', 'objUser', 'objImage']

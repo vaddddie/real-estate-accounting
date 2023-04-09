@@ -249,6 +249,7 @@ input {
 
 .card-row {
 	display: flex;
+	align-items: center;
 	padding: 0.7em;
 	border-radius: 10px;
 }
@@ -261,7 +262,7 @@ input {
 	align-items: center;
 }
 
-.card .gray {
+.gray {
 	background-color: #ebebeb;
 }
 
@@ -278,10 +279,21 @@ CREATING
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	flex-direction: column;
+}
+
+.create-container form {
+	width: 26em;
+	height: auto;
 }
 
 .mb-15 {
 	margin-bottom: 15px;
+}
+
+.mt-15 {
+	margin-top: 15px;
 }
 
 .mb-25 {

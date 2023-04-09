@@ -5,9 +5,47 @@
 
 {% block content %}
 <div class="create-container">
-    <form method="post" action={% url 'createBuilding' %} enctype="multipart/form-data">
+    <h3 class="mb-15 mt-15">Импортируйте карточки в формате .xml:</h3>
+    <input class="mb-25" type="file" name="xml-file">
+    <h3 class="mb-15">Либо добавьте карточку вручную:</h3>
+    <form method="post" action="{% url 'createBuilding' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="card-row gray">
+            <div>Округ:</div>
+            <div class="content-end">{{ form.objState }}</div>
+        </div>
+        <div class="card-row">
+            <div>Район:</div>
+            <div class="content-end">{{ form.objDistrict }}</div>
+        </div>
+        <div class="card-row gray">
+            <div>Адрес:</div>
+            <div class="content-end">{{ form.objAddress }}</div>
+        </div>
+        <div class="card-row">
+            <div>Тип:</div>
+            <div class="content-end">{{ form.objType }}</div>
+        </div>
+        <div class="card-row gray">
+            <div>Состояние:</div>
+            <div class="content-end">{{ form.objStatus }}</div>
+        </div>
+        <div class="card-row">
+            <div>Площадь:</div>
+            <div class="content-end">{{ form.objArea }}</div>
+        </div>
+        <div class="card-row gray">
+            <div>Владелец:</div>
+            <div class="content-end">{{ form.objOwner }}</div>
+        </div>
+        <div class="card-row">
+            <div>Пользователь:</div>
+            <div class="content-end">{{ form.objUser }}</div>
+        </div>
+        <div class="card-row gray mb-15">
+            <div>Фотография:</div>
+            <div class="content-end">{{ form.objImage }}</div>
+        </div>
         <input class="filter-btn" type="submit" value="Создать карточку">
     </form>    
 </div>
