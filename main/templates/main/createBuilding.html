@@ -8,7 +8,7 @@
     <h3 class="mb-15 mt-15">Импортируйте карточки в формате .xml:</h3>
     <form method="post" action="{% url 'createBuilding' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        <input class="mb-15" type="file" name="xml-file">
+        <input class="mb-15" type="file" name="xml-file" accept=".xml">
         <input class="filter-btn mb-25" type="submit" value="Добавить карточки">
     </form>
     <h3 class="mb-15">Либо добавьте карточку вручную:</h3>
@@ -50,7 +50,7 @@
             <div>Фотография:</div>
             <div class="content-end">{{ form.objImage }}</div>
         </div>
-        <input class="filter-btn" type="submit" value="Создать карточку">
+        <input class="filter-btn mb-30" type="submit" value="Создать карточку">
     </form>    
 </div>
 {% endblock %}

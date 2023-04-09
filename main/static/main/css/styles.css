@@ -309,6 +309,12 @@ LIST VIEW
 	padding: 1.5em;
 }
 
+.flex-container-top {
+	display: flex;
+	justify-content: center;
+	align-items: top;
+}
+
 .view-container img {
 	width: 60%;
 	height: 25em;
@@ -318,6 +324,28 @@ LIST VIEW
 	opacity: 0.8;
 
 	object-fit: cover;
+}
+
+.view-container table {
+	width: 60%;
+	height: auto;
+}
+
+.view-container table th{
+	align: center;
+
+	padding: 0.6em;
+	margin: 2px;
+	border-radius: 5px;
+
+	color: white;
+	background-color: #cc2222;
+}
+
+.view-container table td {
+	padding: 0.6em;
+	margin: 2px;
+	border-radius: 5px;
 }
 
 .attrs-container {
@@ -330,6 +358,11 @@ LIST VIEW
 	padding: 0 4em;
 }
 
+.edit-btn {
+	height: 3em;
+	align-items: center;
+}
+
 .mb-15 {
 	margin-bottom: 15px;
 }
@@ -340,6 +373,10 @@ LIST VIEW
 
 .mb-25 {
 	margin-bottom: 25px;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
 }
 
 .mb-5 {

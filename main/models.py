@@ -17,4 +17,4 @@ class Building(models.Model):
     objArea = models.IntegerField()
     objOwner = models.CharField(max_length=50)
     objUser = models.CharField(max_length=50)
-    objImage = models.ImageField(upload_to='images/', default='images/7fIzRQy.png')
+    objImage = models.ImageField(upload_to='images/', default='default/default.png')

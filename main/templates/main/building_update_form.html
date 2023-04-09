@@ -1,9 +1,54 @@
+{% extends 'main/layers/nav_panel.html' %}
+{% load static %}
+
+{% block title %}Редактирование карточки{% endblock %}
 
 {% block content %}
-  <h1>Редактировать строение</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-  </form>
+<div class="view-container">
+    <div class="flex-container-top mb-30">
+        <img src="{{ building.objImage.url }}"/>
+        <div class="attrs-container">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="card-row gray">
+                  <div>Округ:</div>
+                  <div class="content-end">{{ form.objState }}</div>
+              </div>
+              <div class="card-row">
+                  <div>Район:</div>
+                  <div class="content-end">{{ form.objDistrict }}</div>
+              </div>
+              <div class="card-row gray">
+                  <div>Адрес:</div>
+                  <div class="content-end">{{ form.objAddress }}</div>
+              </div>
+              <div class="card-row">
+                  <div>Тип объекта:</div>
+                  <div class="content-end">{{ form.objType }}</div>
+              </div>
+              <div class="card-row gray">
+                  <div>Состояние объекта:</div>
+                  <div class="content-end">{{ form.objStatus }}</div>
+              </div>
+              <div class="card-row">
+                  <div>Площадь:</div>
+                  <div class="content-end">{{ form.objArea }}</div>
+              </div>
+              <div class="card-row gray">
+                  <div>Владелец:</div>
+                  <div class="content-end">{{ form.objOwner }}</div>
+              </div>
+              <div class="card-row">
+                  <div>Пользователь:</div>
+                  <div class="content-end">{{ form.objUser }}</div>
+              </div>
+              <div class="card-row">
+                  <div>Изображение:</div>
+                  <div class="content-end">{{ form.objImage }}</div>
+              </div>
+              <input class="filter-btn mt-15" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
