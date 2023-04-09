@@ -28,11 +28,11 @@ def filterBuilding(request):
         print(queryset[0].objImage)
 
         if min_area and max_area:
-            queryset = queryset.filter(area__gte=min_area, area__lte=max_area)
+            queryset = queryset.filter(objArea__gte=min_area, objArea__lte=max_area)
         elif min_area:
-            queryset = queryset.filter(area__gte=min_area)
+            queryset = queryset.filter(objArea__gte=min_area)
         elif max_area:
-            queryset = queryset.filter(area__lte=max_area)
+            queryset = queryset.filter(objArea__lte=max_area)
         
         if (state!="Любой"):
             queryset = queryset.filter(objState=state)
