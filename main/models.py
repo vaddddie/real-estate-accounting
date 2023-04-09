@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 class Building(models.Model):
@@ -18,3 +20,15 @@ class Building(models.Model):
     objOwner = models.CharField(max_length=50)
     objUser = models.CharField(max_length=50)
     objImage = models.ImageField(upload_to='images/', default='images/7fIzRQy.png')
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    @property
+    def get_html_url(self):
+        url = reverse('cal:event_edit', args=(self.id,))
+        return f'<a href="{url}"> {self.title} </a>'

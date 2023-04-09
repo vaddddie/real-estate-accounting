@@ -10,4 +10,7 @@ urlpatterns = [
     path('editBuilding/', views.edit_building, name='editBuilding'),
     path('editBuilding/<int:pk>/', views.BuildingUpdateView.as_view(), name='edit_building'),
     path('building/<int:pk>/', views.BuildingDetailView.as_view(), name='building_detail'),
+    path('calendar/', views.CalendarView.as_view(), name='calendar'),
+    path('event/new/', views.event, name='event_new'),
+    path(r'event/edit/', views.event, name='event_edit'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
