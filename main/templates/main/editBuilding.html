@@ -1,7 +1,55 @@
+{% extends 'main/layers/nav_panel.html' %}
+{% load static %}
+
+{% block title %}Карточка{% endblock %}
+
+{% block content %}
+<div class="view-container">
+    <div class="flex-container">
+        <img src="">
+        <div class="attrs-container">
+            <div class="card-row gray">
+                <div>Округ:</div>
+                <div class="content-end">ВАО</div>
+            </div>
+            <div class="card-row">
+                <div>Район:</div>
+                <div class="content-end">Таганский</div>
+            </div>
+            <div class="card-row gray">
+                <div>Адрес:</div>
+                <div class="content-end">Таганская улица, 29</div>
+            </div>
+            <div class="card-row">
+                <div>Тип объекта:</div>
+                <div class="content-end">прочее</div>
+            </div>
+            <div class="card-row gray">
+                <div>Состояние объекта:</div>
+                <div class="content-end">Умеренное</div>
+            </div>
+            <div class="card-row">
+                <div>Площадь:</div>
+                <div class="content-end">4213 м²</div>
+            </div>
+            <div class="card-row gray">
+                <div>Владелец:</div>
+                <div class="content-end">Петров</div>
+            </div>
+            <div class="card-row">
+                <div>Пользователь:</div>
+                <div class="content-end">Оганов</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
 <form method="post">
     {% csrf_token %}
     <label for="building_id">ID строения:</label>
     <input type="text" name="building_id">
     <input type="submit" value="Edit">
 </form>
-  
+-->
+{% endblock %}
